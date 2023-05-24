@@ -1,0 +1,16 @@
+body {
+  background-color: aliceblue;
+  text-align: center;
+}
+
+.heading {
+  display: flex; 
+  flex-direction: column; 
+  margin-bottom: 25px; 
+}
+
+.scoreboard {
+  display: flex; 
+  justify-content: space-around;
+  margin-bottom: 25px; 
+}
