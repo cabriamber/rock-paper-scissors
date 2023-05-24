@@ -1,7 +1,11 @@
 const computerOptions = ["rock", "paper", "scissors"]
 // create an array representing possible computer choices 
 
-let userChoice; 
+let userInput = prompt("Rock, Paper, or Scissors?"); 
+console.log(userInput);
+
+let userChoice = userInput.toLowerCase(); 
+console.log(userChoice);
 
 function getRandom() { //returns randomly either 0, 1 or 2
   let number = Math.floor(Math.random() * 3);
