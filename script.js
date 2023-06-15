@@ -113,12 +113,16 @@ function gameFinished() {
 function computerVictory() {
   const computerVictory = document.createElement('div');
   computerVictory.textContent = "THE COMPUTER DEFEATED YOU!";
+  computerVictory.style.color = "red"; 
+  computerVictory.style.fontSize = "larger"; 
   currentRoundReport.appendChild(computerVictory); 
 }
 
 function userVictory() {
   const userVictory = document.createElement('div'); 
   userVictory.textContent = "YOU DEFEATED THE COMPUTER!";
+  userVictory.style.color = "green"; 
+  userVictory.style.fontSize = "larger"; 
   currentRoundReport.appendChild(userVictory); 
 }
 
