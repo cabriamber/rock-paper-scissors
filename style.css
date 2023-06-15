@@ -14,3 +14,13 @@ body {
   justify-content: space-around;
   margin-bottom: 25px; 
 }
+
+.prompt {
+  margin-bottom: 25px; 
+
+}
+
+.options {
+  display: flex; 
+  justify-content: space-around;
+}
