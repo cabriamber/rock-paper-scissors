@@ -33,6 +33,7 @@ body {
   justify-content: space-around;
   font-size: larger; 
   margin-bottom: 50px; 
+  margin-top: 50px;
 }
 
 .currentRoundReport {
@@ -41,6 +42,12 @@ body {
 }
 
 #rock, #paper, #scissors {
-  padding: 40px; 
+  width: 160px; 
+  height: 120px; 
   font-size: larger; 
+  /*box-shadow: 0 0 20px yellow; */
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+  box-shadow: 0 0 30px yellow; 
 }
