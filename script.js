@@ -1,7 +1,7 @@
 let userWins = 0; 
 let computerWins = 0; 
 
-// create an array representing possible computer choices 
+/* 
 let userChoice = 'y';
 //console.log(userChoice);
 function getUserChoice() { //when called prompt the user to make a choice and return the result 
@@ -11,7 +11,29 @@ function getUserChoice() { //when called prompt the user to make a choice and re
   console.log("You chose " + choice);
   userChoice = choice; 
   return choice; 
-}
+} */
+
+let userChoice = ''; 
+console.log(userChoice);
+const rockButton = document.getElementById("rock");
+rockButton.addEventListener("click", () => {
+  //console.log("user chose rock")
+  userChoice = "rock"; 
+  console.log(userChoice);
+} )
+
+const paperButton = document.getElementById("paper"); 
+paperButton.addEventListener("click", () => {
+  userChoice = "paper"; 
+  console.log(userChoice);
+})
+
+const scissorsButton = document.getElementById("scissors");
+scissorsButton.addEventListener("click", () => {
+  userChoice = "scissors"; 
+  console.log(userChoice); 
+})
+
 
 
 function getRandom() { //returns randomly either 0, 1 or 2
@@ -75,6 +97,8 @@ function getWinner() { //determine the winner of the round and display an approp
 
 }
 
+
+/*
 function playRound() {
   let userChoice = getUserChoice(); 
   let computerChoice = getComputerChoice();
@@ -99,3 +123,4 @@ function game() {
 }
 
 game(); 
+*/
