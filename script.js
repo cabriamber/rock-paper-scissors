@@ -107,15 +107,18 @@ function getWinner() { //determine the winner of the round and display an approp
 
 }
 
-
+const computerScore = document.getElementById("computerScore");
+const userScore = document.getElementById("userScore"); 
 
 function playRound() {
   //let userChoice = getUserChoice(); 
   let computerChoice = getComputerChoice();
   let winner = getWinner(); 
-  console.log(winner); 
+  //console.log(winner); 
   console.log("Computer "+ computerWins)
   console.log("You " + userWins)
+  computerScore.textContent = `Computer: ${computerWins}`;
+  userScore.textContent = `User: ${userWins}`; 
 
 }
 
