@@ -15,24 +15,34 @@ function getUserChoice() { //when called prompt the user to make a choice and re
 
 let userChoice = ''; 
 console.log(userChoice);
+
+
 const rockButton = document.getElementById("rock");
 rockButton.addEventListener("click", () => {
   //console.log("user chose rock")
   userChoice = "rock"; 
   console.log(userChoice);
+  playRound(); 
 } )
-
 const paperButton = document.getElementById("paper"); 
 paperButton.addEventListener("click", () => {
   userChoice = "paper"; 
   console.log(userChoice);
+  playRound();
 })
 
 const scissorsButton = document.getElementById("scissors");
 scissorsButton.addEventListener("click", () => {
   userChoice = "scissors"; 
-  console.log(userChoice); 
+  console.log(userChoice);
+  playRound();  
 })
+
+
+
+
+
+
 
 
 
@@ -98,9 +108,9 @@ function getWinner() { //determine the winner of the round and display an approp
 }
 
 
-/*
+
 function playRound() {
-  let userChoice = getUserChoice(); 
+  //let userChoice = getUserChoice(); 
   let computerChoice = getComputerChoice();
   let winner = getWinner(); 
   console.log(winner); 
@@ -111,10 +121,11 @@ function playRound() {
 
 //let outcome = getWinner();
 
-let x = playRound();
+
 
 let rounds = 0; 
 
+/*
 function game() {
   while (rounds < 5) {
     playRound(); 
