@@ -1,18 +1,26 @@
 body {
-  background-color: aliceblue;
+  background-color: black;
   text-align: center;
+  color: white; 
 }
 
-.heading {
+.heading { /* contains title and subheading */
   display: flex; 
   flex-direction: column; 
   margin-bottom: 25px; 
+  font-size: larger;
+}
+
+.subheading { /*first to five */
+  margin-top: 25px; 
+  margin-bottom: 50px; 
 }
 
 .scoreboard {
   display: flex; 
   justify-content: space-around;
   margin-bottom: 25px; 
+  font-size: larger; 
 }
 
 .prompt {
@@ -20,7 +28,19 @@ body {
 
 }
 
-.options {
+.options { /* container for buttons */
   display: flex; 
   justify-content: space-around;
+  font-size: larger; 
+  margin-bottom: 50px; 
+}
+
+.currentRoundReport {
+  display: flex; 
+  font-size: larger; 
+}
+
+#rock, #paper, #scissors {
+  padding: 40px; 
+  font-size: larger; 
 }
