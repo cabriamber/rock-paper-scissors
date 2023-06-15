@@ -1,48 +1,51 @@
 let userWins = 0; 
 let computerWins = 0; 
 
-/* 
-let userChoice = 'y';
-//console.log(userChoice);
-function getUserChoice() { //when called prompt the user to make a choice and return the result 
-  let userInput = prompt("Rock, Paper, or Scissors?");
-  console.log(userInput);
-  let choice = userInput.toLowerCase(); 
-  console.log("You chose " + choice);
-  userChoice = choice; 
-  return choice; 
-} */
-
+let computerChoice = 'x';
 let userChoice = ''; 
-console.log(userChoice);
 
+const computerOptions = ["rock", "paper", "scissors"]
+
+const buttons = document.getElementById("buttons");
 
 const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper"); 
+const scissorsButton = document.getElementById("scissors");
+
+const promptBar = document.getElementById("notice"); 
+const score = document.getElementById("score");
+
+const computerScore = document.getElementById("computerScore");
+const userScore = document.getElementById("userScore"); 
+const outcomeMessage = document.getElementById("determineWinner");
+
+const displayUserChoice = document.getElementById("userChoiceInfo"); 
+const displayComputerChoice = document.getElementById("computerChoiceInfo"); 
+
+const currentRoundReport = document.getElementById("currentRoundReport"); 
+
+
 rockButton.addEventListener("click", () => {
-  //console.log("user chose rock")
-  userChoice = "rock"; 
+  userChoice = "rock";
+  displayUserChoice.textContent = `You chose ${userChoice}`; 
   console.log(userChoice);
   playRound(); 
 } )
-const paperButton = document.getElementById("paper"); 
+
 paperButton.addEventListener("click", () => {
   userChoice = "paper"; 
+  displayUserChoice.textContent = `You chose ${userChoice}`;
   console.log(userChoice);
   playRound();
 })
 
-const scissorsButton = document.getElementById("scissors");
+
 scissorsButton.addEventListener("click", () => {
   userChoice = "scissors"; 
   console.log(userChoice);
+  displayUserChoice.textContent = `You chose ${userChoice}`;
   playRound();  
 })
-
-
-
-
-
-
 
 
 
@@ -51,9 +54,6 @@ function getRandom() { //returns randomly either 0, 1 or 2
   return number;  
 }
 
-let computerChoice = 'x';
-//console.log(computerChoice);
-const computerOptions = ["rock", "paper", "scissors"]
 function getComputerChoice() {
   let randomNumber = getRandom(); 
   let choice = computerOptions[randomNumber];
@@ -61,13 +61,6 @@ function getComputerChoice() {
   computerChoice = choice; 
   return choice; 
 }
-//let x = getComputerChoice();
-//console.log(computerChoice)
-
-//let computerChoice = getComputerChoice(); 
-//console.log("The computer chose " +computerChoice);
-
-
 
 function getWinner() { //determine the winner of the round and display an appropriate message
   if (computerChoice === userChoice) {
@@ -107,34 +100,54 @@ function getWinner() { //determine the winner of the round and display an approp
 
 }
 
-const computerScore = document.getElementById("computerScore");
-const userScore = document.getElementById("userScore"); 
+function gameFinished() {
+  buttons.remove();
+  promptBar.remove();
+  score.textContent = "FINAL SCORE"; 
+  displayUserChoice.remove(); 
+  displayComputerChoice.remove(); 
+  outcomeMessage.remove();
+
+}
+
+function computerVictory() {
+  const computerVictory = document.createElement('div');
+  computerVictory.textContent = "THE COMPUTER DEFEATED YOU!";
+  currentRoundReport.appendChild(computerVictory); 
+}
+
+function userVictory() {
+  const userVictory = document.createElement('div'); 
+  userVictory.textContent = "YOU DEFEATED THE COMPUTER!";
+  currentRoundReport.appendChild(userVictory); 
+}
+
+function checkForWinningScore() {
+  if (computerWins === 5) {
+    setTimeout(gameFinished, 1500); 
+    setTimeout(computerVictory, 1500); 
+
+  }
+  else if (userWins ===5) {
+    setTimeout(gameFinished, 1500); 
+    setTimeout(userVictory, 1500); 
+
+  }
+}
 
 function playRound() {
   //let userChoice = getUserChoice(); 
   let computerChoice = getComputerChoice();
-  let winner = getWinner(); 
-  //console.log(winner); 
+  displayComputerChoice.textContent = `The computer chose ${computerChoice}`;
+  let message = getWinner(); 
+  outcomeMessage.textContent = `${message}`
+
   console.log("Computer "+ computerWins)
   console.log("You " + userWins)
+
   computerScore.textContent = `Computer: ${computerWins}`;
   userScore.textContent = `User: ${userWins}`; 
 
+  checkForWinningScore();
+
 }
-
-//let outcome = getWinner();
-
-
-
-let rounds = 0; 
-
-/*
-function game() {
-  while (rounds < 5) {
-    playRound(); 
-    rounds = rounds +1; 
-  }
-}
-
-game(); 
-*/
